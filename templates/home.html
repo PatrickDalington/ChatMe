@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<style type='text/css'>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: Verdana;
+    }
+
+
+    body {
+        background-image: url('https://img.pogo.org/image/content/2018/facial-recognition-gif-v5-o_1150.gif?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=800&q=80&ratio=1.5&w=1200&s=4e2f6eeb1cc9940aa21f63bb62f2d161');
+        background-size: cover;
+        font-family: sans-serif;
+        position: flex;
+        margin-top: 40px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main_div {
+            text-align:center;
+            position: relative;
+            left: 100px;
+            height: 200px;
+            width: 500px;
+            background-color: green;
+        }
+        .sub_div {
+            clear: both;
+            width:100%;
+            position: relative;
+            bottom:-10;
+        }
+        p {
+            margin-left:110px;
+        }
+
+</style>
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>Generative AI</title>
+</head>
+
+<body>
+    
+    <div class='mt-3 text-center' style="background-color: rgba(92, 38, 239, 0.9);">
+        <h1 style="color: white;padding: 11px;font-size: 44px; margin-top: 100px;">Generative AI</h1>
+    </div>
+
+    {% if mess%}
+    <p class="text-center" style="color: red;font-size: 20px;">{{ mess }}</p>
+    {% endif %}
+
+
+
+        <div class="col"
+            style="border-radius: 20px;padding: 0px;background-color:rgb(0, 0, 0, 0.8);margin:0px 10px 10px 10px;height: 400px;">
+
+            <h2 style="border-radius: 20px 20px 0px 0px;background-color: rgb(216, 13, 77) ;color: white;padding: 10px;">Time To Ask Sherline<i class="material-icons">control_point_duplicate</i></h2>
+            <label style="font-size: 20px; color: white"><b>What would you like Sherline to answer?</b></label>
+            <br>
+             {% for x in qa %}
+                <h5 style="padding: 25px; color: white; background-color: black"><i><i style="color: green;">You: {{ x[0] }}</i>
+                <br>Sherline: {{ x[1] }}</i></h5>
+             {% endfor %}
+
+
+        </div>
+
+         <form class="sub_div" action='/add' method="POST" enctype="multipart/form-data">
+
+
+                       <input type="text" id="question" name='question'
+                            style="font-size: 20px;margin-top:10px;margin-bottom:10px;border-radius: 10px;width: 300px; height: 50px;" required>
+                     <button style="width: 232px;margin-top: 20px;font-size: 20px; border-radius: 10px; width: 300px; height: 50px;" type='submit' class='btn btn-dark'>Ask</button>
+
+
+
+         </form>
+
+</body>
+
+</html>
